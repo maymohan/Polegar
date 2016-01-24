@@ -194,9 +194,10 @@ void loop(void)
       myServo.write(180);
   }
   fsrValue = analogRead(FSRpin);
-  if(fsrValue>20)
+  Serial.println(fsrValue);
+  if(fsrValue>70)
   {
-    servoPos = map(fsrValue, 0, 960, 0, 180);
+    servoPos = map(fsrValue, 70, 1023, 0, 180);
     Serial.println(servoPos);
     myServo.write(servoPos);
   }
